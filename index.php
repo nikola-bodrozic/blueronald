@@ -16,7 +16,8 @@
 					
 				<h3><?php the_title(); ?></h3>
 				<?php the_content(__('Read more...')); ?> 	
-				      <?php endwhile; ?><div class="navigation">
+				      <?php endwhile; ?>
+				<div class="navigation">
 				  <div class="alignleft"><?php previous_posts_link('&laquo; Newer Posts') ?></div>
 				  <div class="alignright"><?php next_posts_link('Older Posts &raquo;') ?></div>
 				</div>

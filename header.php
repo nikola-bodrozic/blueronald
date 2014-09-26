@@ -48,7 +48,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav> 		
-		
+		<header>
 	    	<div class="row">
 			    <div class="span12">
 			    	<div class="well">
@@ -57,5 +57,5 @@
 			        </div>
 			    </div>
 	       </div>
-	      
+	    </header>
 	       

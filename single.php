@@ -2,7 +2,7 @@
 get_header(); ?>
 
     	<div class="row">
-		    <div class="span12">
+		    <div class="col-md-8">
 			<?php
 				// Start the Loop.
 				while ( have_posts() ) : the_post();
@@ -14,6 +14,11 @@ get_header(); ?>
 				endwhile;
 			?>
 		</div><!-- #content -->
+		    <div class="col-md-4">
+<?php
+get_sidebar();
+?>
+	    </div>		
 	</div><!-- #primary -->
 
 <?php
