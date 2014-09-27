@@ -7,9 +7,10 @@ Description: Simple and minimal theme
 Version: 1.0
 Tags: custom, attractive, horizontal menu
 Text Domain: blue-ronald
+
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 @import'css/bootstrap.min.css';
-#sidebar li { list-style-type: none; }
-#sidebar ul { list-style-type: none; margin: 0; padding: 5px; }
+.widget-container li { list-style-type: none; }
+.widget-container ul { list-style-type: none; margin: 0; padding: 5px; }

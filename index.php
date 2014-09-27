@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <div class="row">
-	<div class="span12">
+	<div class="col-md-8">
 				<?php
 					 $args = array(
 								   'post_type' => 'post',
@@ -15,16 +15,22 @@
 				?>
 					
 				<h3><?php the_title(); ?></h3>
-				<?php the_content(__('Read more...')); ?> 	
+				<?php the_content(__('Read more...','blue-ronald')); ?> 	
 				      <?php endwhile; ?>
 				<div class="navigation">
-				  <div class="alignleft"><?php previous_posts_link('&laquo; Newer Posts') ?></div>
-				  <div class="alignright"><?php next_posts_link('Older Posts &raquo;') ?></div>
+				  <div class="alignleft"><?php previous_posts_link(__('&laquo; Newer Posts','blue-ronald')) ?></div>
+				  <div class="alignright"><?php next_posts_link(__('Older Posts &raquo;','blue-ronald')) ?></div>
 				</div>
 				<?php
 				wp_reset_query(); // Restore global post data
 				?>
 	</div>
+    <div class="col-md-4">
+        <?php if ( is_active_sidebar( 'sidebar-widget-area' ) ) { ?>
+            <?php dynamic_sidebar( 'sidebar-widget-area' ); ?>
+        <?php } ?>
+    </div>	
+    
 </div>
 
 

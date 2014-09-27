@@ -50,12 +50,17 @@
 </nav> 		
 		<header>
 	    	<div class="row">
-			    <div class="span12">
+			    <div class="col-md-8">
 			    	<div class="well">
 				        <h1><?php bloginfo('name'); ?></h1>
 				        <h3><?php bloginfo('description'); ?></h3>
 			        </div>
 			    </div>
+			    <div class="col-md-4">
+					<?php if ( is_active_sidebar( 'in-header-widget-area' ) ) { ?>
+					    <?php dynamic_sidebar( 'in-header-widget-area' ); ?>
+					<?php } ?>
+			    </div>			    
 	       </div>
 	    </header>
 	       

@@ -5,12 +5,26 @@ register_nav_menus( array(
 ) );
 
 function theme_slug_widgets_init() {
+    // In header widget area, located to the right hand side of the header, next to the site title and description. Empty by default.
     register_sidebar( array(
-        'name' => __( 'Main Sidebar', 'blueronald' ),
-        'id' => 'sidebar-1',
-        'description' => __( 'Widgets in this area will be shown on all posts and pages.', 'blueronald' ),
-        'before_title' => '<h1>',
-        'after_title' => '</h1>',
+        'name' => 'In Header Widget Area',
+        'id' => 'in-header-widget-area',
+        'description' => 'A widget area located to the right hand side of the header, next to the site title and description.',
+        'before_widget' => '<div class="widget-container %2$s" id="%1$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
+ 
+    // Sidebar widget area, located in the sidebar. Empty by default.
+    register_sidebar( array(
+        'name' => 'Sidebar Widget Area',
+        'id' => 'sidebar-widget-area',
+        'description' => 'The sidebar widget area',
+        'before_widget' => '<div class="widget-container %2$s" id="%1$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
     ) );
 }
 add_action( 'widgets_init', 'theme_slug_widgets_init' );
