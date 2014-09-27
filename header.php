@@ -45,7 +45,7 @@
                 'walker'            => new wp_bootstrap_navwalker())
             );
         ?>
-    </div><!-- /.navbar-collapse -->
+    </div><!-- /.navbar-collapse  -->
   </div><!-- /.container-fluid -->
 </nav> 		
 		<header>
@@ -54,6 +54,7 @@
 			    	<div class="well">
 				        <h1><?php bloginfo('name'); ?></h1>
 				        <h3><?php bloginfo('description'); ?></h3>
+                        <h4>Translated text to spanish with _e(), po and  mo files <em><?php _e('Hello', 'blueronald'); ?></em></h4>
 			        </div>
 			    </div>
 			    <div class="col-md-4">

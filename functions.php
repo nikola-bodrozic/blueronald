@@ -4,8 +4,14 @@ register_nav_menus( array(
     'primary' => __( 'Primary Menu', 'blueronald' ),
 ) );
 
+
+add_action('after_setup_theme', 'my_theme_setup');
+function my_theme_setup(){
+    load_theme_textdomain('blueronald', get_template_directory() . '/languages');
+}
+
 function theme_slug_widgets_init() {
-    // In header widget area, located to the right hand side of the header, next to the site title and description. Empty by default.
+    // In header widget area , located to the right hand side of the header, next to the site title and description. Empty by default.
     register_sidebar( array(
         'name' => 'In Header Widget Area',
         'id' => 'in-header-widget-area',
