@@ -15,11 +15,12 @@
 				?>
 					
 				<h3><?php the_title(); ?></h3>
-				<?php the_content(__('Read more...','blueronald')); ?> 
+				<?php the_excerpt(); ?> 
+				<p><a class="btn btn-primary btn-lg" role="button" href="<?php the_permalink(); ?>"><?php _e('Read More...', 'blueronald'); ?></a></p>
 				      <?php endwhile; ?>
 				<div class="navigation">
-				  <div class="alignleft"><?php previous_posts_link(__('&laquo; Newer Posts','blueronald')) ?></div>
-				  <div class="alignright"><?php next_posts_link(__('Older Posts &raquo;','blueronald')) ?></div>
+				  <div class="alignleft" style="display: inline;"><?php previous_posts_link('<button type="button" class="btn btn-default">'.__('&laquo; Newer Posts','blueronald').'</button>') ?></div>
+				  <div class="alignright" style="display: inline;"><?php next_posts_link('<button type="button" class="btn btn-default">'.__('Older Posts &raquo;','blueronald').'</button>') ?></div>
 				</div>
 				<?php
 				wp_reset_query(); // Restore global post data
