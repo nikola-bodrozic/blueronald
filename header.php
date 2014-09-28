@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php wp_title(bloginfo('name'),'.::.', true, 'right'); ?></title>
+    <title><?php  bloginfo('name').wp_title(); ?></title>
 
     <!-- Bootstrap -->
     <link href="<?php bloginfo('stylesheet_url'); ?>" rel="stylesheet">
@@ -50,6 +50,14 @@
 </nav> 		
 		<header>
 	    	<div class="row">
+	    		<div class="col-md-8">
+		<?php
+            wp_nav_menu( array(
+                'menu'              => 'secondary',
+                'theme_location'    => 'secondary')
+            );
+        ?>	    			
+	    		</div>
 			    <div class="col-md-8">
 			    	<div class="well">
 				        <h1><?php bloginfo('name'); ?></h1>
