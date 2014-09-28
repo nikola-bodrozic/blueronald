@@ -24,17 +24,17 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand" href="/">Home</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<?php
             wp_nav_menu( array(
                 'menu'              => 'primary',
@@ -50,15 +50,34 @@
 </nav> 		
 		<header>
 	    	<div class="row">
-	    		<div class="col-md-8">
+			    <div class="col-md-8">
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
 		<?php
             wp_nav_menu( array(
                 'menu'              => 'secondary',
-                'theme_location'    => 'secondary')
+                'theme_location'    => 'secondary',
+                'depth'             => 2,
+                'menu_class'        => 'nav navbar-nav',
+                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+                'walker'            => new wp_bootstrap_navwalker())
             );
-        ?>	    			
-	    		</div>
-			    <div class="col-md-8">
+        ?>
+    </div><!-- /.navbar-collapse  -->
+  </div><!-- /.container-fluid -->
+</nav> 				    	
 			    	<div class="well">
 				        <h1><?php bloginfo('name'); ?></h1>
 				        <h3><?php bloginfo('description'); ?></h3>

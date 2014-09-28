@@ -13,3 +13,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 @import'css/bootstrap.min.css';
 .widget-container li { list-style-type: none; }
 .widget-container ul { list-style-type: none; margin: 0; padding: 5px; }
+h3.widget-title  {
+    background-color:#0066CC;
+    color: white;
+    padding: 3px;
+}
