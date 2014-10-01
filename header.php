@@ -84,9 +84,7 @@
                         <h4>Translated text to spanish with _e(), po and  mo files <em><?php _e('Hello', 'blueronald'); ?></em></h4>
 			        </div>
 			    </div>
-			    <div class="col-md-4">
-                        <?php get_sidebar('head'); ?>
-			    </div>			    
+                <?php get_sidebar('head'); ?>			    
 	       </div>
 	    </header>
 	       

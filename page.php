@@ -15,9 +15,9 @@
 
 		</div>
             
-		    <div class="col-md-4">
+
                             <?php get_sidebar('right'); ?>
-		</div>            
+            
         </div>  
 		<?php // comments_template(); ?>
 

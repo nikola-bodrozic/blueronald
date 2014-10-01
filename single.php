@@ -14,9 +14,7 @@ get_header(); ?>
 				endwhile;
 			?>
 		</div><!-- #content -->
-		    <div class="col-md-4">
-                        <?php get_sidebar('right'); ?>
-	    </div>		
+                        <?php get_sidebar('right'); ?>	
 	</div><!-- #primary -->
 
 <?php

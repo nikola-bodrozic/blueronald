@@ -28,7 +28,7 @@
 				wp_reset_query(); // Restore global post data
 				?>
 	</div>
-    <div class="col-md-4">
+
               <?php get_sidebar('right'); ?>
     </div>	
     
