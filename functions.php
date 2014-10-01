@@ -1,5 +1,6 @@
 <?php
 require_once('wp_bootstrap_navwalker.php');
+
 register_nav_menus( array(
     'primary' => __( 'Menu 1', 'blueronald' ),
     'secondary' => __( 'Menu 2', 'blueronald' ),    
