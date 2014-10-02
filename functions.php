@@ -1,11 +1,13 @@
 <?php
 require_once('wp_bootstrap_navwalker.php');
 
+// Register menus
 register_nav_menus( array(
     'primary' => __( 'Menu 1', 'blueronald' ),
     'secondary' => __( 'Menu 2', 'blueronald' ),    
 ) );
 
+// How many posts per page
 add_action( 'pre_get_posts', 'blueronald_posts_per_pare_setup' );
 
 function blueronald_posts_per_pare_setup(){
@@ -13,12 +15,15 @@ function blueronald_posts_per_pare_setup(){
 	$wp_query->set('posts_per_page', 5);
 }
 
-
+// Setup path to Spanish .mo. and .po files
 add_action('after_setup_theme', 'blueronald_lang_setup');
 
 function blueronald_lang_setup(){
     load_theme_textdomain('blueronald', get_template_directory() . '/languages');
 }
+
+// Register widgets
+add_action( 'widgets_init', 'theme_slug_widgets_init' );
 
 function theme_slug_widgets_init() {
     // In header widget area , located to the right hand side of the header, next to the site title and description. Empty by default.
@@ -43,8 +48,8 @@ function theme_slug_widgets_init() {
         'after_title' => '</h3>',
     ) );
 }
-add_action( 'widgets_init', 'theme_slug_widgets_init' );
 
+// Pagination on Search.php
 function blueronald_paging_navigation() {
 	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
 		return;
@@ -52,11 +57,11 @@ function blueronald_paging_navigation() {
 	?>
 		<div class="navigation">
 			<?php if ( get_next_posts_link() ) : ?>
-			<div class="alignleft" style="display: inline;"> <?php next_posts_link('<button type="button" class="btn btn-default">'.__('&raquo; Older Posts ','blueronald').'</button>'); ?></div>
+			<div class="alignleft" style="display: inline;"> <?php next_posts_link('<button type="button" class="btn btn-default">'.__('&laquo; Older Posts &amp; Pages  ','blueronald').'</button>'); ?></div>
 			<?php endif; ?>
 
 			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="alignright" style="display: inline;"><?php previous_posts_link('<button type="button" class="btn btn-default">'.__(' Newer Posts &laquo;','blueronald').'</button>'); ?> </div>
+			<div class="alignright" style="display: inline;"><?php previous_posts_link('<button type="button" class="btn btn-default">'.__(' Newer Posts &amp; Pages &raquo;','blueronald').'</button>'); ?> </div>
 			<?php endif; ?>
 		</div><!-- .nav-links -->
 	<?php
