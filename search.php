@@ -7,9 +7,9 @@
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
-
-				<h3><?php the_title(); ?></h3>
-				
+               <?php include('include/byline_data.inc'); ?>
+				<h3> <?php the_title(); ?> </h3>
+				<?php  include('include/byline_render.inc');  ?>				
 				<?php the_excerpt(); ?>
 				
 				<p><a class="btn btn-primary btn-lg" role="button" href="<?php the_permalink(); ?>"><?php _e('Read More...', 'blueronald'); ?></a></p>

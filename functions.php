@@ -3,8 +3,8 @@ require_once('wp_bootstrap_navwalker.php');
 
 // Register menus
 register_nav_menus( array(
-    'primary' => __( 'Menu 1', 'blueronald' ),
-    'secondary' => __( 'Menu 2', 'blueronald' ),    
+    'primary' => __( 'TopMenu', 'blueronald' ),
+    'secondary' => __( 'BottomMenu', 'blueronald' ),    
 ) );
 
 // How many posts per page

@@ -37,8 +37,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<?php
             wp_nav_menu( array(
-                'menu'              => 'primary',
-                'theme_location'    => 'primary',
+                'menu'              => 'TopMenu',
                 'depth'             => 2,
                 'menu_class'        => 'nav navbar-nav',
                 'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
@@ -67,8 +66,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
 		<?php
             wp_nav_menu( array(
-                'menu'              => 'secondary',
-                'theme_location'    => 'secondary',
+                'menu'              => 'BottomMenu',
                 'depth'             => 2,
                 'menu_class'        => 'nav navbar-nav',
                 'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
@@ -81,7 +79,7 @@
 			    	<div class="well">
 				        <h1><?php bloginfo('name'); ?></h1>
 				        <h3><?php bloginfo('description'); ?></h3>
-                        <h4>Translated text to spanish with _e(), po and  mo files <em><?php _e('Hello', 'blueronald'); ?></em></h4>
+                       <!-- <h4>Translated text to spanish with _e(), po and  mo files  _e('Hello', 'blueronald'); </h4>  -->
 			        </div>
 			    </div>
                 <?php get_sidebar('head'); ?>			    
