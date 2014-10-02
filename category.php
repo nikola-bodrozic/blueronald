@@ -1,8 +1,15 @@
-<?php get_header(); ?>
+<?php 
+/*
+Template Name: Category
+*/
+get_header(); ?>
 <div class="row">
 	<div class="col-md-8">
-
+		
 		<?php if ( have_posts() ) : ?>
+
+			<h2>Category: <?php single_cat_title(); ?></h2>
+
 
 			<?php while ( have_posts() ) : the_post(); include('include/byline_data.inc'); ?>
 
