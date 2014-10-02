@@ -27,6 +27,7 @@
 				<div class="alignright" style="display: inline;"><?php next_posts_link('<button type="button" class="btn btn-default">'.__('Older Posts &raquo;','blueronald').'</button>') ?></div>
 			</div>
 			<br>
+			
 		<?php else : ?>
 
 			<p><?php _e('No posts by this author.', 'blueronald'); ?></p>
@@ -34,7 +35,7 @@
 		<?php endif; ?>
 
     </div>	
-              <?php get_sidebar('right'); ?>    
+       <?php get_sidebar('right'); ?>    
 </div>
 
 <?php get_footer(); ?>
