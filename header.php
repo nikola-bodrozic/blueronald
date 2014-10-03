@@ -20,69 +20,77 @@
   <body>
  <div class="container">
 
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">Home</a>
-    </div>
+		<nav class="navbar navbar-default" role="navigation">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="/">Home</a>
+		    </div>
+		
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<?php
+		            wp_nav_menu( array(
+		                'menu'              => 'TopMenu',
+		                'depth'             => 2,
+		                'menu_class'        => 'nav navbar-nav',
+		                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+		                'walker'            => new wp_bootstrap_navwalker())
+		            );
+		        ?>
+		    </div><!-- /.navbar-collapse  -->
+		  </div><!-- /.container-fluid -->
+		</nav> 		
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		<?php
-            wp_nav_menu( array(
-                'menu'              => 'TopMenu',
-                'depth'             => 2,
-                'menu_class'        => 'nav navbar-nav',
-                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-                'walker'            => new wp_bootstrap_navwalker())
-            );
-        ?>
-    </div><!-- /.navbar-collapse  -->
-  </div><!-- /.container-fluid -->
-</nav> 		
-		<header>
 	    	<div class="row">
-			    <div class="col-md-8">
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
+	    		<div class="panel panel-default">
+	  				<div class="panel-body">
+				    <div class="col-md-8">
+					        <h1><?php bloginfo('name'); ?></h1>
+					        <h3><?php bloginfo('description'); ?></h3>
+	                       <!-- <h4>Translated text to spanish with _e(), po and  mo files  _e('Hello', 'blueronald'); </h4>  -->
+	
+				       </div> <!-- /.col-md-8  -->
+		                        <?php get_sidebar('head'); ?>
+		            </div><!-- /.panel-body  -->
+	            </div>	<!-- /.panel panel-default  -->	    
+	      </div> <!-- /.row  -->
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-		<?php
-            wp_nav_menu( array(
-                'menu'              => 'BottomMenu',
-                'depth'             => 2,
-                'menu_class'        => 'nav navbar-nav',
-                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-                'walker'            => new wp_bootstrap_navwalker())
-            );
-        ?>
-    </div><!-- /.navbar-collapse  -->
-  </div><!-- /.container-fluid -->
-</nav> 				    	
-			    	<div class="well">
-				        <h1><?php bloginfo('name'); ?></h1>
-				        <h3><?php bloginfo('description'); ?></h3>
-                       <!-- <h4>Translated text to spanish with _e(), po and  mo files  _e('Hello', 'blueronald'); </h4>  -->
-			        </div>
-			    </div>
-                <?php get_sidebar('head'); ?>			    
-	       </div>
-	    </header>
+		    <div class="row">
+				<div class="col-md-12">	    	
+					<nav class="navbar navbar-inverse" role="navigation">
+					  <div class="container-fluid">
+					    <!-- Brand and toggle get grouped for better mobile display -->
+					    <div class="navbar-header">
+					      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+					        <span class="sr-only">Toggle navigation</span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					      </button>
+					    </div>
+					
+					    <!-- Collect the nav links, forms, and other content for toggling -->
+					    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+							<?php
+					            wp_nav_menu( array(
+					                'menu'              => 'BottomMenu',
+					                'depth'             => 2,
+					                'menu_class'        => 'nav navbar-nav',
+					                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+					                'walker'            => new wp_bootstrap_navwalker())
+					            );
+					        ?>
+					    </div><!-- /.navbar-collapse  -->
+					  </div><!-- /.container-fluid -->
+					</nav> 
+				</div> <!-- /.col-md-12  -->		    	
+		    </div>  <!-- /.row  -->
+
 	       

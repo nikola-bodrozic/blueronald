@@ -11,8 +11,7 @@
                 <h3 id="post-<?php the_ID(); ?>" class="post"> <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
 
 				<p class="text-muted">  
-                   <?php 
-                   include('include/byline_data.inc'); 
+                   <?php
                     _e("Written by: ","blueronald");
                     echo "<a href='/?author_name=$pAuthor'>$pDispName</a>";
                     echo "&nbsp;";
@@ -21,14 +20,10 @@
                 </p>		
 
 				<?php the_content(); ?>
-
-			
-
 		</div>
-            
-
+		
        <?php get_sidebar('right'); ?>
-            
+              
         </div>  
 		<?php // comments_template(); ?>
 
