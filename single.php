@@ -23,6 +23,12 @@ get_header(); ?>
 				} else {
 					echo "<p>No tags for this post</p>";
 				}
+				
+				echo "<br>";
+				
+				comments_template();
+				
+				echo "<br>";				
 ?>
 				
 		      </div><!-- .col-md-8 -->

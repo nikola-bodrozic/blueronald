@@ -57,13 +57,13 @@ function blueronald_paging_navigation() {
 	?>
 		<div class="navigation">
 			<?php if ( get_next_posts_link() ) : ?>
-			<div class="alignleft" style="display: inline;"> <?php next_posts_link('<button type="button" class="btn btn-default">'.__('&laquo; Older Posts &amp; Pages  ','blueronald').'</button>'); ?></div>
+			<div class="alignleft" style="display: inline;"> <?php next_posts_link('<button type="button" class="btn btn-default">' . __('&laquo; Older Posts &amp; Pages  ', 'blueronald') . '</button>'); ?></div>
 			<?php endif; ?>
 
 			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="alignright" style="display: inline;"><?php previous_posts_link('<button type="button" class="btn btn-default">'.__(' Newer Posts &amp; Pages &raquo;','blueronald').'</button>'); ?> </div>
+			<div class="alignright" style="display: inline;"><?php previous_posts_link('<button type="button" class="btn btn-default">' . __(' Newer Posts &amp; Pages &raquo;', 'blueronald') . '</button>'); ?> </div>
 			<?php endif; ?>
 		</div><!-- .nav-links -->
 	<?php
-}
+	}
 ?>
