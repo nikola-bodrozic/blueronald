@@ -17,7 +17,8 @@
 		  jQuery(this).find('.dropdown-menu').stop(true, true).delay(50).fadeIn(50);
 		}, function() {
 		  jQuery(this).find('.dropdown-menu').stop(true, true).delay(50).fadeOut(50);
-		});
+		});		    
+		jQuery('.widget-container > ul').addClass('nav nav-pills nav-stacked');	
     </script>
         <?php wp_footer(); ?>
   </body>
