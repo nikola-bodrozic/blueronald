@@ -4,9 +4,9 @@
 
 		<?php if ( have_posts() ) : ?>
 
-			<?php while ( have_posts() ) : the_post(); include('include/byline_data.inc'); ?>
+			<?php while ( have_posts() ) : the_post(); ?>
 
-				<h3><?php the_title(); ?></h3>
+                <h3 id="post-<?php the_ID(); ?>" class="post"> <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
 				
 				<?php	include('include/byline_render.inc');       ?>        
         

@@ -1,6 +1,6 @@
 <?php 
 /*
-Template Name: Category
+Template Name: Archive
 */
 get_header(); ?>
 <div class="row">
@@ -8,14 +8,15 @@ get_header(); ?>
 		
 		<?php if ( have_posts() ) : ?>
 
-			<h2>Category: <?php single_cat_title(); ?></h2>
-
-
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php $d = explode('/',$_SERVER['REQUEST_URI']); ?>
+			
+			<h2> Archive for <?php echo date_i18n( get_option( 'date_format' ), strtotime( $d[3].'/'.$d[2].'-'.$d[1] ) ); ?></h2>	
+	
+			<?php while ( have_posts() ) : the_post();  ?>
 
                 <h3 id="post-<?php the_ID(); ?>" class="post"> <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
 				
-				<?php	include('include/byline_render.inc');       ?>        
+				<?php	include('include/byline_render.inc');    ?>        
         
 				<?php the_excerpt(); ?>
 				 
