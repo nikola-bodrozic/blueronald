@@ -11,7 +11,19 @@ get_header(); ?>
                        
 				<?php	include('include/byline_render.inc');       ?>
 				
-				<?php	the_content();       ?>
+				<?php	the_content();       
+				
+				$posttags = get_the_tags();
+				if ($posttags) {
+					$tagString ="";	
+				  foreach($posttags as $tag) {
+				    $tagString .= $tag->name . ', '; 
+				  }
+				  echo "Tag(s): ".substr($tagString, 0, -2);
+				} else {
+					echo "<p>No tags for this post</p>";
+				}
+?>
 				
 		      </div><!-- .col-md-8 -->
                         <?php get_sidebar('right'); ?>	
