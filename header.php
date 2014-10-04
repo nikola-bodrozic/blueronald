@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php  bloginfo('name').wp_title(); ?></title>
+    <title><?php  bloginfo('name') . wp_title(); ?></title>
 
     <!-- Bootstrap -->
     <link href="<?php bloginfo('stylesheet_url'); ?>" rel="stylesheet">
@@ -36,30 +36,31 @@
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<?php
-		            wp_nav_menu( array(
-		                'menu'              => 'TopMenu',
-		                'depth'             => 2,
-		                'menu_class'        => 'nav navbar-nav',
-		                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-		                'walker'            => new wp_bootstrap_navwalker())
-		            );
+				wp_nav_menu(array('menu' => 'TopMenu', 'depth' => 2, 'menu_class' => 'nav navbar-nav', 'fallback_cb' => 'wp_bootstrap_navwalker::fallback', 'walker' => new wp_bootstrap_navwalker()));
 		        ?>
 		    </div><!-- /.navbar-collapse  -->
 		  </div><!-- /.container-fluid -->
 		</nav> 		
 
 	    	<div class="row">
-	    		<div class="panel panel-default">
-	  				<div class="panel-body">
-				    <div class="col-md-8">
-					        <h1><?php bloginfo('name'); ?></h1>
-					        <h3><?php bloginfo('description'); ?></h3>
-	                       <!-- <h4>Translated text to spanish with _e(), po and  mo files  _e('Hello', 'blueronald'); </h4>  -->
-	
-				       </div> <!-- /.col-md-8  -->
-		                        <?php get_sidebar('head'); ?>
-		            </div><!-- /.panel-body  -->
-	            </div>	<!-- /.panel panel-default  -->	    
+	    		<div class="col-md-4" style="background: green;">
+
+								
+<p>laceholder</p>
+				                       
+
+		      </div><!-- /.col-md  -->
+	    		<div class="col-md-8" style="background: green;">
+	  						
+								
+									
+								        <h1><?php bloginfo('name'); ?></h1>
+								        <h3><?php bloginfo('description'); ?></h3>
+				                       <!-- <h4>Translated text to spanish with _e(), po and  mo files  _e('Hello', 'blueronald'); </h4>  -->
+				                       
+			                	
+			                
+		      </div><!-- /.col-md  -->		      
 	      </div> <!-- /.row  -->
 
 		    <div class="row">
@@ -79,18 +80,11 @@
 					    <!-- Collect the nav links, forms, and other content for toggling -->
 					    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
 							<?php
-					            wp_nav_menu( array(
-					                'menu'              => 'BottomMenu',
-					                'depth'             => 2,
-					                'menu_class'        => 'nav navbar-nav',
-					                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-					                'walker'            => new wp_bootstrap_navwalker())
-					            );
+							wp_nav_menu(array('menu' => 'BottomMenu', 'depth' => 2, 'menu_class' => 'nav navbar-nav', 'fallback_cb' => 'wp_bootstrap_navwalker::fallback', 'walker' => new wp_bootstrap_navwalker()));
 					        ?>
 					    </div><!-- /.navbar-collapse  -->
 					  </div><!-- /.container-fluid -->
 					</nav> 
 				</div> <!-- /.col-md-12  -->		    	
 		    </div>  <!-- /.row  -->
-
 	       

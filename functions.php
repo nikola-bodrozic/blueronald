@@ -23,30 +23,31 @@ function blueronald_lang_setup(){
 }
 
 // Register widgets
-add_action( 'widgets_init', 'theme_slug_widgets_init' );
+add_action( 'widgets_init', 'blueronald_slug_widgets_init' );
 
-function theme_slug_widgets_init() {
+function blueronald_slug_widgets_init() {
+    // Sidebar widget area, located in the sidebar. Empty by default.
+    register_sidebar( array(
+        'name' => 'Right Sidebar',
+        'id' => 'sidebar-widget-area',
+        'description' => 'The sidebar on the right',
+        'before_widget' => '<div class="widget-container %2$s" id="%1$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
+		
     // In header widget area , located to the right hand side of the header, next to the site title and description. Empty by default.
     register_sidebar( array(
-        'name' => 'In Header Widget Area',
-        'id' => 'in-header-widget-area',
-        'description' => 'A widget area located to the right hand side of the header, next to the site title and description.',
+        'name' => 'Footer Widgets Area',
+        'id' => 'in-footer-widget-area',
+        'description' => 'A widget area located on right side of the footer.',
         'before_widget' => '<div class="widget-container %2$s" id="%1$s">',
         'after_widget' => '</div>',
         'before_title' => '<h3 class="widget-title">',
         'after_title' => '</h3>',
     ) );
  
-    // Sidebar widget area, located in the sidebar. Empty by default.
-    register_sidebar( array(
-        'name' => 'Sidebar Widget Area',
-        'id' => 'sidebar-widget-area',
-        'description' => 'The sidebar widget area',
-        'before_widget' => '<div class="widget-container %2$s" id="%1$s">',
-        'after_widget' => '</div>',
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
 }
 
 // Pagination on Search.php
