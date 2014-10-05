@@ -54,7 +54,7 @@ function blueronald_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'blueronald_display_options',
 		array(
-			'title'     => 'Display Options',
+			'title'     => 'Theme Options',
 			'priority'  => 200
 		)
 	);
@@ -64,7 +64,7 @@ function blueronald_customize_register( $wp_customize ) {
 		'blueronald_display_bottom_menu',
 		array(
 			'default'    =>  'true',
-			'transport'  =>  'postMessage'
+			'transport'  =>  'postMessage',
 		)
 	);
 
@@ -84,7 +84,7 @@ function blueronald_customize_register( $wp_customize ) {
 		'blueronald_display_sidebar',
 		array(
 			'default'    =>  'true',
-			'transport'  =>  'postMessage'
+			'transport'  =>  'postMessage',			
 		)
 	);
 
@@ -102,6 +102,14 @@ function blueronald_customize_register( $wp_customize ) {
 	#$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 	//$wp_customize->get_setting( 'blueronald_display_bottom_menu' )->transport = 'postMessage';
 	//$wp_customize->get_setting( 'blueronald_display_sidebar' )->transport = 'postMessage';	
+}
+
+function sanitize_checkbox( $input ) {
+    if ( $input == 1 ) {
+        return 1;
+    } else {
+        return '';
+    }
 }
 
 add_action( 'wp_head', 'blueronald_customizer_bottom_menu' );
