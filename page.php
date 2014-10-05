@@ -18,7 +18,7 @@
                     _e('On: '.get_the_date(), 'blueronald');
                     ?>
                 </p>		
-
+<?php   if ( has_post_thumbnail() )	the_post_thumbnail('medium', array('class' => 'pull-left', 'id' => 'in-single')); ?>	
 				<?php the_content(); ?>
 		</div>
 		

@@ -1,6 +1,14 @@
 <?php
 require_once('include/wp_bootstrap_navwalker.php');
 
+// add support for featured mages
+add_theme_support( 'post-thumbnails' ); 
+
+if ( function_exists( 'add_theme_support' ) ) { 
+	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size( 150, 150, true ); // default Post Thumbnail dimensions (cropped)
+}
+
 // Register menus
 register_nav_menus( array(
     'top-menu' => __( 'Top Menu', 'blueronald' ),

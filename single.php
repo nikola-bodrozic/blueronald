@@ -8,11 +8,14 @@ get_header(); ?>
 				the_post();
 ?>
                 <h3 id="post-<?php the_ID(); ?>" class="post"> <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>       
-                       
+
+										                       
 				<?php	include('include/byline_render.inc');       ?>
 				
+<?php   if ( has_post_thumbnail() )	the_post_thumbnail('medium', array('class' => 'pull-left', 'id' => 'in-single')); ?>	
+		
 				<?php	the_content();       
-				
+			
 				$posttags = get_the_tags();
 				if ($posttags) {
 					$tagString ="";	

@@ -11,9 +11,32 @@
 				
 				<?php  include('include/byline_render.inc');  ?>	
 							
-				<?php the_excerpt(); ?>
+				<div class="row">
+					
+								<div id="feat-image" class="col-md-3">				
+									<?php 
+										$noimage = get_bloginfo('template_directory') . '/images/no-image.jpg';
+										if ( has_post_thumbnail() ){ 
+											the_post_thumbnail('thumbnail');
+										}
+										else {
+											echo "<img src='$noimage'>";
+										}	
+									?>
+								</div>
+				        
+				        
+								<div id="excerpt"  class="col-md-9">
+									<?php the_excerpt(); ?>
+								</div>
+								
+				</div>
+				 
+				<br>
 				
 				<p><a class="btn btn-primary btn-lg" role="button" href="<?php the_permalink(); ?>"><?php _e('Read More...', 'blueronald'); ?></a></p>
+				
+								 <hr style="width: 80%;">
 
 			<?php endwhile; ?>
 
