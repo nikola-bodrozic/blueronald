@@ -51,8 +51,14 @@
 		</nav> 		
 
 	    	<div class="row">
-
-	    		<div class="col-md-12">
+	    		<div class="col-md-4">
+				<?php if ( get_theme_mod( 'blueronald_logo' ) ) : ?>				
+				        <a href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'><img src='<?php echo esc_url( get_theme_mod( 'blueronald_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'></a>
+				<?php else : ?>
+						Please login, click on 'Theme Options' add logo <a href='<?php echo esc_url( home_url( '/' ) ).'/wp-admin/customize.php'; ?>'>here</a>.
+				<?php endif; ?>
+	    		</div>
+	    		<div class="col-md-8">
 				        <h1><?php bloginfo('name'); ?></h1>
 				        <h3><?php bloginfo('description'); ?></h3>
                        <!-- <h4>Translated text to spanish with _e(), po and  mo files  _e('Hello', 'blueronald'); </h4>  -->

@@ -6,18 +6,31 @@ get_header(); ?>
 <div class="row">
 	<div class="col-md-8">
 		
-		<?php if ( have_posts() ) : ?>
+			<?php if ( have_posts() ) : ?>
 
-			<?php $d = explode('/',$_SERVER['REQUEST_URI']); ?>
-			
-			<h2> Archive for <?php echo date_i18n( get_option( 'date_format' ), strtotime( $d[3].'/'.$d[2].'-'.$d[1] ) ); ?></h2>	
-	
+				<h1>
+					<?php
+						if ( is_day() ) :
+							printf( __( 'Daily Archives: %s', 'blueronald' ), get_the_date() );
+
+						elseif ( is_month() ) :
+							printf( __( 'Monthly Archives: %s', 'blueronald' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'blueronald' ) ) );
+
+						elseif ( is_year() ) :
+							printf( __( 'Yearly Archives: %s', 'blueronald' ), get_the_date( _x( 'Y', 'yearly archives date format', 'blueronald' ) ) );
+
+						else :
+							_e( 'Archives', 'blueronald' );
+
+						endif;
+					?>
+				</h1>
+
 			<?php while ( have_posts() ) : the_post();  ?>
 
                 <h3 id="post-<?php the_ID(); ?>" class="post"> <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
 				
-				<?php	include('include/byline_render.inc');    ?>        
-
+				<?php	include('include/byline_render.inc');       ?>    
 				<div class="row">
 					
 								<div id="feat-image" class="col-md-3">				
@@ -40,23 +53,23 @@ get_header(); ?>
 				</div>
 				 
 				<br>
-				 
+				
 				<p><a class="btn btn-primary btn-lg" role="button" href="<?php the_permalink(); ?>"><?php _e('Read More...', 'blueronald'); ?></a></p>
 				
-				 <hr style="width: 80%;">
-				 
-			<?php endwhile; ?>
+								 <hr style="width: 80%;">
+                <?php endwhile; ?>
 
 			<div class="navigation">
-				<div class="alignleft" style="display: inline;">&nbsp;&nbsp;<?php previous_posts_link('<button type="button" class="btn btn-default">'.__('&laquo; Newer Posts','blueronald').'</button>') ?></div>
-				<div class="alignright" style="display: inline;"><?php next_posts_link('<button type="button" class="btn btn-default">'.__('Older Posts &raquo;','blueronald').'</button>') ?></div>
+				<div style="display: inline;"><?php next_posts_link('<button type="button" class="btn btn-default">'.__('&laquo; Older Posts','blueronald').'</button>') ?></div>
+				<div style="display: inline;">&nbsp;&nbsp;<?php previous_posts_link('<button type="button" class="btn btn-default">'.__(' Newer Posts &raquo;','blueronald').'</button>') ?></div>
 			</div>
 			<br>
-		<?php else : ?>
-
-			<p><?php _e('No post found', 'blueronald'); ?></p>
-
-		<?php endif; ?>
+<?php
+				else :
+			           echo "<p><?php _e('No posts found.', 'blueronald'); ?></p>";
+					
+				endif;
+			?>
 
     </div>	
               <?php get_sidebar('right'); ?>    

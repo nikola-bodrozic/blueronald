@@ -66,8 +66,18 @@ function blueronald_customize_register( $wp_customize ) {
 			'priority'  => 200
 		)
 	);
+
+	// logo control start	
+	$wp_customize->add_setting('blueronald_logo');
+
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'blueronald_logo', array(
+	    'label'    => __( 'Logo', 'blueronald' ),
+	    'section'  => 'blueronald_display_options',
+	    'settings' => 'blueronald_logo',
+	) ) );
+	// logo control end	
 	
-    // first control start
+    // 2. control start
 	$wp_customize->add_setting(
 		'blueronald_display_bottom_menu',
 		array(
@@ -84,10 +94,10 @@ function blueronald_customize_register( $wp_customize ) {
 			'type'      => 'checkbox'
 		)
 	);
-	// first control end    
+	// 2. control end    
 			
 			
-	// second control start	
+	// 3. control start	
 	$wp_customize->add_setting(
 		'blueronald_display_sidebar',
 		array(
@@ -104,8 +114,9 @@ function blueronald_customize_register( $wp_customize ) {
 			'type'      => 'checkbox'
 		)
 	);
-	// second control end
-	
+	// 3. control end
+
+
 	#$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
 	#$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 	//$wp_customize->get_setting( 'blueronald_display_bottom_menu' )->transport = 'postMessage';
