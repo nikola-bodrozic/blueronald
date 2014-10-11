@@ -40,8 +40,8 @@
 			<?php endwhile; ?>
 
 			<div class="navigation">
-				<div class="alignleft" style="display: inline;">&nbsp;&nbsp;<?php previous_posts_link('<button type="button" class="btn btn-default">'.__('&laquo; Newer Posts','blueronald').'</button>') ?></div>
-				<div class="alignright" style="display: inline;"><?php next_posts_link('<button type="button" class="btn btn-default">'.__('Older Posts &raquo;','blueronald').'</button>') ?></div>
+				<div style="display: inline;"><?php next_posts_link('<button type="button" class="btn btn-default">'.__('&laquo; Older Posts','blueronald').'</button>') ?></div>
+				<div style="display: inline;">&nbsp;&nbsp;<?php previous_posts_link('<button type="button" class="btn btn-default">'.__(' Newer Posts &raquo;','blueronald').'</button>') ?></div>
 			</div>
 			<br>
 		<?php else : ?>
