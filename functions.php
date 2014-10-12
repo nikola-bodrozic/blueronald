@@ -1,4 +1,5 @@
 <?php
+// walker for bootstrap menu items
 require_once('include/wp_bootstrap_navwalker.php');
 
 // add support for featured mages
@@ -163,6 +164,72 @@ function blueronald_customizer_live_preview() {
 }
 //////////////// end theme customize API
 
+/////////////// start custom post type and it`s taxonomy
+add_action( 'init', 'create_portfolio_post_type' ); 
+function create_portfolio_post_type() {
+    $args = array(
+                  'description' => 'Portfolio',
+                  'show_ui' => true,
+                  'menu_position' => 4,
+                  'exclude_from_search' => true,
+                  'labels' => array(
+                                    'name'=> 'Portfolios',
+                                    'singular_name' => 'Portfolios',
+                                    'add_new' => 'Add New Portfolio',
+                                    'add_new_item' => 'Add New Portfolio',
+                                    'edit' => 'Edit Portfolios',
+                                    'edit_item' => 'Edit Portfolio',
+                                    'new-item' => 'New Portfolio',
+                                    'view' => 'View Portfolios',
+                                    'view_item' => 'View Portfolio',
+                                    'search_items' => 'Search Portfolios',
+                                    'not_found' => 'No Portfolios Found',
+                                    'not_found_in_trash' => 'No Portfolios Found in Trash',
+                                    'parent' => 'Parent Portfolio'
+                                   ),
+                 'public' => true,
+                 'menu_icon' => 'dashicons-portfolio',
+                 'capability_type' => 'post',
+                 'hierarchical' => false,
+                 'rewrite' => true,
+                 'supports' => array('title', 'editor', 'thumbnail', 'custom-fields')
+                 );
+    register_post_type( 'portfolio' , $args );
+}
+
+/*====================================================
+Register Custom Post Type Taxonomies
+======================================================*/
+ 
+add_action('init', 'register_portfolio_taxonomy');
+ 
+function register_portfolio_taxonomy() {
+  register_taxonomy('portfolio_category',
+                    'portfolio',
+                     array (
+                           'labels' => array (
+                                              'name' => 'Portfolio Categories',
+                                              'singular_name' => 'Portfolio Categories',
+                                              'search_items' => 'Search Portfolio Categories',
+                                              'popular_items' => 'Popular Portfolio Categories',
+                                              'all_items' => 'All Portfolio Categories',
+                                              'parent_item' => 'Parent Portfolio Category',
+                                              'parent_item_colon' => 'Parent Portfolio Category:',
+                                              'edit_item' => 'Edit Portfolio Category',
+                                              'update_item' => 'Update Portfolio Category',
+                                              'add_new_item' => 'Add New Portfolio Category',
+                                              'new_item_name' => 'New Portfolio Category',
+                                            ),
+                            'hierarchical' =>true,
+                            'rewrite' => array( 'slug' => 'portfolio','with_front' => FALSE),
+                            'show_ui' => true,
+                            'show_tagcloud' => true,
+                            'rewrite' => false,
+                            'public'=>true
+                            )
+                     );
+}
+////////////// end custom post type and it`s taxonomy
 
 // Setup path to Spanish .mo. and .po files
 add_action('after_setup_theme', 'blueronald_lang_setup');
