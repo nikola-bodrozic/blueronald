@@ -55,7 +55,7 @@
 				<?php if ( get_theme_mod( 'blueronald_logo' ) ) : ?>				
 				        <a href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'><img src='<?php echo esc_url( get_theme_mod( 'blueronald_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'></a>
 				<?php else : ?>
-						Please login, click on 'Theme Options' add logo <a href='<?php echo esc_url( home_url( '/' ) ).'/wp-admin/customize.php'; ?>'>here</a>.
+						<p>Please login, select Appearance -> Customize -> Theme Options and  add logo</p> 
 				<?php endif; ?>
 	    		</div>
 	    		<div class="col-md-8">

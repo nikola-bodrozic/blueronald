@@ -82,8 +82,8 @@ function blueronald_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'blueronald_display_bottom_menu',
 		array(
-			'default'    =>  'true',
-			'transport'  =>  'postMessage',
+		'default'        => true,
+		'transport'  =>  'postMessage',
 		)
 	);
 
@@ -96,55 +96,21 @@ function blueronald_customize_register( $wp_customize ) {
 		)
 	);
 	// 2. control end    
-			
-			
-	// 3. control start	
-	$wp_customize->add_setting(
-		'blueronald_display_sidebar',
-		array(
-			'default'    =>  'true',
-			'transport'  =>  'postMessage',			
-		)
-	);
-
-	$wp_customize->add_control(
-		'blueronald_display_sidebar',
-		array(
-			'section'   => 'blueronald_display_options',
-			'label'     => 'Display Side Bar?',
-			'type'      => 'checkbox'
-		)
-	);
-	// 3. control end
-
-
-	#$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
-	#$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-	//$wp_customize->get_setting( 'blueronald_display_bottom_menu' )->transport = 'postMessage';
-	//$wp_customize->get_setting( 'blueronald_display_sidebar' )->transport = 'postMessage';	
-}
-
-function sanitize_checkbox( $input ) {
-    if ( $input == 1 ) {
-        return 1;
-    } else {
-        return '';
-    }
 }
 
 add_action( 'wp_head', 'blueronald_customizer_bottom_menu' );
 function blueronald_customizer_bottom_menu() {
     ?>
 	 <style type="text/css">
-	     <?php if( false === get_theme_mod( 'blueronald_display_bottom_menu' ) ) { ?>
-	     	.navbar-inverse { display: none; }
-	     <?php } // end if ?>
-	     
-    
-	     <?php if( false === get_theme_mod( 'blueronald_display_sidebar' ) ) { ?>
-	     	#right-sidebar { display: none; }
-	     <?php } // end if ?>
-	     
+	 	     <?php 
+	   echo '/* ';	
+        var_dump(get_theme_mod( 'blueronald_display_bottom_menu', TRUE ));  	        
+        echo ' */';
+       if( TRUE === get_theme_mod( 'blueronald_display_bottom_menu', TRUE )) 
+          echo ".navbar-inverse { display: block; }";
+        else
+           echo ".navbar-inverse { display: none; }";         
+        ?>  
 	 </style>
     <?php
 }
