@@ -204,6 +204,35 @@ function blueronald_lang_setup(){
     load_theme_textdomain('blueronald', get_template_directory() . '/languages');
 }
 
+
+// admin messages
+/* Display a notice that can be dismissed */
+add_action('admin_notices', 'example_admin_notice');
+
+function example_admin_notice() {
+  global $current_user ;
+        $user_id = $current_user->ID;
+        /* Check that the user hasn't already clicked to ignore the message */
+  if ( ! get_user_meta($user_id, 'blueronald_thanks_notice_closed') ) {
+        echo '<div class="updated"><p>'; 
+        printf(__('Thank You for installing the theme | <a href="%1$s">Hide Notice</a>'), '?blueronald_txh_message=0');
+        echo "</p></div>";
+  }
+}
+
+add_action('admin_init', 'blueronald_txh_message');
+
+function blueronald_txh_message() {
+  global $current_user;
+        $user_id = $current_user->ID;
+        /* If user clicks to ignore the notice, add that to their user meta */
+        if ( isset($_GET['blueronald_txh_message']) && '0' == $_GET['blueronald_txh_message'] ) {
+             add_user_meta($user_id, 'blueronald_thanks_notice_closed', 'true', true);
+  }
+}
+
+
+
 // Pagination on Search.php
 function blueronald_paging_navigation() {
 	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
