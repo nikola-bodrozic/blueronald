@@ -52,6 +52,35 @@ function blueronald_posts_per_pare_setup(){
 }
 
 
+////////////////// Add theme option page START
+add_action('admin_menu', 'blueronald_create_menu');
+function blueronald_create_menu() {
+	//create new top-level menu
+	//$icon = get_template_directory_uri() . '/images/icon.png';
+	add_menu_page(__('Theme Settings', 'blueronald'), __('Blue Ronald Theme', 'blueronald'), 'administrator', 'blueronald-theme-settings', 'blueronald_settings_page');
+}
+
+function blueronald_settings_page (){
+?>
+<div class="wrap">
+        <h2>Global Custom Options</h2>
+        <form method="post" action="options.php">
+            <?php wp_nonce_field('update-options') ?>
+            <p><strong>Twitter ID:</strong><br />
+                <input type="text" name="twitterid" size="45" value="<?php echo get_option('twitterid'); ?>" />
+            </p>
+			<p><strong>Facebook Page Links:</strong><br />
+			    <input type="text" name="fb_link" size="45" value="<?php echo get_option('fb_link'); ?>" />
+			</p>            
+            <p><input type="submit" name="Submit" value="Store Options" /></p>
+            <input type="hidden" name="action" value="update" />
+            <input type="hidden" name="page_options" value="twitterid,fb_link" />
+        </form>
+    </div>
+<?php
+}
+////////////////////// Add theme option page END
+
 ///////////////////// customize theme API start
 add_action( 'customize_register', 'blueronald_customize_register' );
 function blueronald_customize_register( $wp_customize ) {
