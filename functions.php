@@ -77,42 +77,30 @@ function blueronald_customize_register( $wp_customize ) {
 	    'settings' => 'blueronald_logo',
 	) ) );
 	// logo control end	
-	
-    // 2. control start
+				
+	// 2. control text start	
 	$wp_customize->add_setting(
-		'blueronald_display_bottom_menu',
+		'blueronald_display_cpm',
 		array(
-		'default'        => true,
-		'transport'  =>  'postMessage',
+			'default'    =>  'Copyright &copy; by ',
+			'transport'  =>  'postMessage',	
+			'sanitize_callback' => 'blueronald_sanitize_text',		
 		)
 	);
 
 	$wp_customize->add_control(
-		'blueronald_display_bottom_menu',
+		'blueronald_display_cpm',
 		array(
 			'section'   => 'blueronald_display_options',
-			'label'     => 'Display Bottom Menu?',
-			'type'      => 'checkbox'
+			'label'     => 'Set Copyright message',
+			'type'      => 'text'
 		)
 	);
-	// 2. control end    
+	// 2. control text end
 }
 
-add_action( 'wp_head', 'blueronald_customizer_bottom_menu' );
-function blueronald_customizer_bottom_menu() {
-    ?>
-	 <style type="text/css">
-	 	     <?php 
-	   echo '/* ';	
-        var_dump(get_theme_mod( 'blueronald_display_bottom_menu', TRUE ));  	        
-        echo ' */';
-       if( TRUE === get_theme_mod( 'blueronald_display_bottom_menu', TRUE )) 
-          echo ".navbar-inverse { display: block; }";
-        else
-           echo ".navbar-inverse { display: none; }";         
-        ?>  
-	 </style>
-    <?php
+function blueronald_sanitize_text($input){
+	return wp_kses_post( force_balance_tags( $input ) );
 }
 
 // Live preview
@@ -164,7 +152,7 @@ function create_portfolio_post_type() {
 }
 
 /*====================================================
-Register Custom Post Type Taxonomies
+Register Custom Post Taxonomies
 ======================================================*/
  
 add_action('init', 'register_portfolio_taxonomy');
@@ -204,33 +192,32 @@ function blueronald_lang_setup(){
     load_theme_textdomain('blueronald', get_template_directory() . '/languages');
 }
 
-
 // admin messages
 /* Display a notice that can be dismissed */
-add_action('admin_notices', 'example_admin_notice');
 
-function example_admin_notice() {
-  global $current_user ;
+add_action('admin_notices', 'blueronald_admin_notice');
+
+function blueronald_admin_notice() {
+	global $current_user ;
         $user_id = $current_user->ID;
         /* Check that the user hasn't already clicked to ignore the message */
-  if ( ! get_user_meta($user_id, 'blueronald_thanks_notice_closed') ) {
+	if ( ! get_user_meta($user_id, 'example_ignore_notice') ) {
         echo '<div class="updated"><p>'; 
-        printf(__('Thank You for installing the theme | <a href="%1$s">Hide Notice</a>'), '?blueronald_txh_message=0');
+        printf(__('Thank You for installing this theme | <a href="%1$s">Hide Notice</a>'), '?example_nag_ignore=0');
         echo "</p></div>";
-  }
+	}
 }
 
-add_action('admin_init', 'blueronald_txh_message');
+add_action('admin_init', 'blueronald_nag_ignore');
 
-function blueronald_txh_message() {
-  global $current_user;
+function blueronald_nag_ignore() {
+	global $current_user;
         $user_id = $current_user->ID;
         /* If user clicks to ignore the notice, add that to their user meta */
-        if ( isset($_GET['blueronald_txh_message']) && '0' == $_GET['blueronald_txh_message'] ) {
-             add_user_meta($user_id, 'blueronald_thanks_notice_closed', 'true', true);
-  }
+        if ( isset($_GET['example_nag_ignore']) && '0' == $_GET['example_nag_ignore'] ) {
+             add_user_meta($user_id, 'example_ignore_notice', 'true', true);
+	}
 }
-
 
 
 // Pagination on Search.php

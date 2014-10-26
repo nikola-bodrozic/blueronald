@@ -15,7 +15,7 @@
 					
 								<div id="feat-image" class="col-md-3">				
 									<?php 
-										$noimage = get_bloginfo('template_directory') . '/images/no-image.jpg';
+										$noimage = get_template_directory_uri()  . '/images/no-image.jpg';
 										if ( has_post_thumbnail() ){ 
 											the_post_thumbnail('thumbnail');
 										}

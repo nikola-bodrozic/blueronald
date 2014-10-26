@@ -5,7 +5,7 @@ Author: Nikola
 Author URI: http://example.com
 Description: Simple and minimal theme
 Version: 1.0
-Tags: custom, attractive, horizontal menu
+Tags: two-columns, right-sidebar, responsive-layout, featured-images, post-formats,  theme-options, translation-ready
 Text Domain: blueronald
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -78,3 +78,25 @@ ol.commentlist li.parent { border-left: 5px solid #111; }
 ol.commentlist li.thread-alt { }
 ol.commentlist li.thread-even { }
 ol.commentlist li.thread-odd { }
+
+/* mandatory CSS classes */
+.wp-caption,
+.wp-caption-text,
+.sticky,
+.gallery-caption,
+.bypostauthor{
+	opacity: 1;
+} 
+
+.alignleft {
+	float: left;
+	margin: 0 20px 20px 0;
+}
+.alignright {
+	float: right;
+	margin: 0 0 20px 20px;
+}
+.aligncenter {
+	display: block;
+	margin: 10px auto;
+} 

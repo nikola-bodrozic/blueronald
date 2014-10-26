@@ -11,8 +11,8 @@
 				</div>
 				<div class="col-md-4">
 
-					<p class="text-center">
-						Footer text
+					<p class="text-center" id="copyright">
+						<?php echo get_theme_mod( 'blueronald_display_cpm' ) ?>
 					</p>
 
 				</div>				
