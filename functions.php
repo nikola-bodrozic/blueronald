@@ -104,6 +104,7 @@ function blueronald_customize_register( $wp_customize ) {
 	    'label'    => __( 'Logo', 'blueronald' ),
 	    'section'  => 'blueronald_display_options',
 	    'settings' => 'blueronald_logo',
+	    'sanitize_callback' => 'esc_url_raw'
 	) ) );
 	// logo control end	
 				

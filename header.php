@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html  <?php language_attributes();?>>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,7 +17,8 @@
     <![endif]-->
     <?php wp_head(); ?>
   </head>
-  <body>
+  <body <?php body_class( $class ); ?>>
+ <?php if ( ! isset( $content_width ) ) $content_width = 900; ?>
  <div class="container">
 
 		<nav class="navbar navbar-default" role="navigation">
@@ -55,7 +56,7 @@
 				<?php if ( get_theme_mod( 'blueronald_logo' ) ) : ?>				
 				        <a href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'><img src='<?php echo esc_url( get_theme_mod( 'blueronald_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'></a>
 				<?php else : ?>
-						<p>Please login, select Appearance -> Customize -> Theme Options and  add logo</p> 
+						Please login, click on Appearance -&gt; Customize add logo in section 'Theme Options'.
 				<?php endif; ?>
 	    		</div>
 	    		<div class="col-md-8">

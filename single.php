@@ -12,10 +12,16 @@ get_header(); ?>
 										                       
 				<?php	include('include/byline_render.inc');       ?>
 				
-<?php   if ( has_post_thumbnail() )	the_post_thumbnail('medium', array('class' => 'pull-left', 'id' => 'in-single')); ?>	
+<?php   if ( has_post_thumbnail() )	the_post_thumbnail('medium', array('class' => 'pull-left', 'id' => 'in-single'));	
 		
-				<?php	the_content();       
-			
+				the_content();       
+			wp_link_pages( array(
+				'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'blueronald' ) . '</span>',
+				'after'       => '</div>',
+				'link_before' => '<span>',
+				'link_after'  => '</span>',
+			) );
+
 				$posttags = get_the_tags();
 				if ($posttags) {
 					$tagString ="";	
