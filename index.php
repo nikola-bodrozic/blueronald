@@ -12,20 +12,20 @@
         
 				<div class="row">
 					
-								<div id="feat-image" class="col-md-3">				
+								<div id="feat-image-<?php the_ID(); ?>" class="col-md-3">				
 									<?php 
 										$noimage = get_bloginfo('template_directory') . '/images/no-image.jpg';
 										if ( has_post_thumbnail() ){ 
 											the_post_thumbnail('thumbnail');
 										}
 										else {
-											echo "<img src='$noimage'>";
+											echo "<img src='$noimage' alt='generic image'>";
 										}	
 									?>
 								</div>
 				        
 				        
-								<div id="excerpt"  class="col-md-9">
+								<div id="excerpt-<?php the_ID(); ?>"  class="col-md-9">
 									<?php the_excerpt(); ?>
 								</div>
 								
@@ -40,8 +40,8 @@
 			<?php endwhile; ?>
 
 			<div class="navigation">
-				<div style="display: inline;"><?php next_posts_link('<button type="button" class="btn btn-default">'.__('&laquo; Older Posts','blueronald').'</button>') ?></div>
-				<div style="display: inline;">&nbsp;&nbsp;<?php previous_posts_link('<button type="button" class="btn btn-default">'.__(' Newer Posts &raquo;','blueronald').'</button>') ?></div>
+<div style="display: inline;"><?php next_posts_link('<div class="btn btn-default">'.__('&laquo; Older Posts ','blueronald').'</div>') ?></div>
+<div style="display: inline;">&nbsp;&nbsp;<?php previous_posts_link('<div class="btn btn-default">'.__('Newer Posts &raquo;','blueronald').'</div>') ?></div>	
 			</div>
 			<br>
 		<?php else : ?>

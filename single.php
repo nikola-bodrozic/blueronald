@@ -7,7 +7,8 @@ get_header(); ?>
 				// Single Post
 				the_post();
 ?>
-                <h3 id="post-<?php the_ID(); ?>" class="post"> <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>       
+                   
+                <h3 id="post-<?php the_ID(); ?>" <?php post_class(); ?>> <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a> </h3>   
 
 										                       
 				<?php	include('include/byline_render.inc');       ?>
@@ -35,9 +36,7 @@ get_header(); ?>
 				
 				echo "<br>";
 				
-				comments_template();
-				
-				echo "<br>";				
+comments_template( "comments.php" ); 							
 ?>
 				
 		      </div><!-- .col-md-8 -->

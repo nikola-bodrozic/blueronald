@@ -100,3 +100,7 @@ ol.commentlist li.thread-odd { }
 	display: block;
 	margin: 10px auto;
 } 
+
+/* background */
+/*.bluer{background-image: url('images/bg.jpeg');*/
+.bluer{background-color: #CCFFCC;}

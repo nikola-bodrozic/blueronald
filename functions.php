@@ -4,6 +4,7 @@ require_once('include/wp_bootstrap_navwalker.php');
 
 // add support for featured mages
 add_theme_support( 'post-thumbnails' ); 
+add_theme_support( 'automatic-feed-links' );
 
 if ( function_exists( 'add_theme_support' ) ) { 
 	add_theme_support( 'post-thumbnails' );

@@ -17,7 +17,7 @@
     <![endif]-->
     <?php wp_head(); ?>
   </head>
-  <body <?php body_class( $class ); ?>>
+  <body <?php $class="bluer"; body_class( $class ); ?>>
  <?php if ( ! isset( $content_width ) ) $content_width = 900; ?>
  <div class="container">
 
