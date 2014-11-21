@@ -6,36 +6,41 @@
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
-                <h3 id="post-<?php the_ID(); ?>" class="post"> <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
-				
-				<?php	include('include/byline_render.inc');       ?>        
-        
-				<div class="row">
+					<div class="bs-example">
+					    <div class="panel panel-default" style="padding-left:5px;">
 					
-								<div id="feat-image-<?php the_ID(); ?>" class="col-md-3">				
-									<?php 
-										$noimage = get_bloginfo('template_directory') . '/images/no-image.jpg';
-										if ( has_post_thumbnail() ){ 
-											the_post_thumbnail('thumbnail');
-										}
-										else {
-											echo "<img src='$noimage' alt='generic image'>";
-										}	
-									?>
-								</div>
-				        
-				        
-								<div id="excerpt-<?php the_ID(); ?>"  class="col-md-9">
-									<?php the_excerpt(); ?>
-								</div>
-								
-				</div>
+					                <h3 id="post-<?php the_ID(); ?>" class="post"> <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
+									
+									<?php	include('include/byline_render.inc');       ?>        
+					        
+									<div class="row">
+										
+													<div id="feat-image-<?php the_ID(); ?>" class="col-md-3">				
+														<?php 
+															$noimage = get_template_directory_uri() . '/images/no-image.jpg';
+															if ( has_post_thumbnail() ){ 
+																the_post_thumbnail('thumbnail');
+															}
+															else {
+																echo "<img src='$noimage' alt='generic image'>";
+															}	
+														?>
+													</div>
+									        
+									        
+													<div id="excerpt-<?php the_ID(); ?>"  class="col-md-9">
+														<?php the_excerpt(); ?>
+													</div>
+													
+									</div>
+									 
+									<br>
+									 
+									<p><a class="btn btn-primary btn-lg" role="button" href="<?php the_permalink(); ?>"><?php _e('Read More...', 'blueronald'); ?></a></p>
+						</div><!-- .panel panel-default  -->
+					</div><!-- .bs-example -->
 				 
-				<br>
-				 
-				<p><a class="btn btn-primary btn-lg" role="button" href="<?php the_permalink(); ?>"><?php _e('Read More...', 'blueronald'); ?></a></p>
-				 
-				 <hr style="width: 80%;">
+				 <br>
 				 
 			<?php endwhile; ?>
 

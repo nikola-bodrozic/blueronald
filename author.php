@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+
 <?php
     $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
 ?>
@@ -16,35 +17,39 @@
 <h3><?php _e('Posts by this author.', 'blueronald'); ?></h3>
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<h3><?php the_title(); ?></h3>
-				
-				<div class="row">
-					
-								<div id="feat-image" class="col-md-3">				
-									<?php 
-										$noimage = get_bloginfo('template_directory') . '/images/no-image.jpg';
-										if ( has_post_thumbnail() ){ 
-											the_post_thumbnail('thumbnail');
-										}
-										else {
-											echo "<img src='$noimage'>";
-										}	
-									?>
-								</div>
-				        
-				        
-								<div id="excerpt"  class="col-md-9">
-									<?php the_excerpt(); ?>
-								</div>
+					<div class="bs-example">
+					    <div class="panel panel-default" style="padding-left:5px;">
+
+											<h3 id="post-<?php the_ID(); ?>" class="post"> <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
 								
-				</div>
-				 
-				<br>
+								<div class="row">
+									
+												<div id="feat-image" class="col-md-3">				
+													<?php 
+														$noimage = get_template_directory_uri() . '/images/no-image.jpg';
+														if ( has_post_thumbnail() ){ 
+															the_post_thumbnail('thumbnail');
+														}
+														else {
+															echo "<img src='$noimage'>";
+														}	
+													?>
+												</div>
+								        
+								        
+												<div id="excerpt"  class="col-md-9">
+													<?php the_excerpt(); ?>
+												</div>
+												
+								</div>
+								 
+								<br>
+								
+								<p><a class="btn btn-primary btn-lg" role="button" href="<?php the_permalink(); ?>"><?php _e('Read More...', 'blueronald'); ?></a></p>
 				
-				<p><a class="btn btn-primary btn-lg" role="button" href="<?php the_permalink(); ?>"><?php _e('Read More...', 'blueronald'); ?></a></p>
-				
-								 <hr style="width: 80%;">
-				 
+								 <br>
+				 		</div><!-- .panel panel-default -->
+					</div><!-- .bs-example -->
 			<?php endwhile; ?>
 
 			<div class="navigation">
