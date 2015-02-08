@@ -11,6 +11,12 @@ if ( function_exists( 'add_theme_support' ) ) {
 	set_post_thumbnail_size( 150, 150, true ); // default Post Thumbnail dimensions (cropped)
 }
 
+// Add WooCommerce Support
+add_action( 'after_setup_theme', 'woocommerce_support' );
+function woocommerce_support() {
+	add_theme_support( 'woocommerce' );
+}
+
 // Register menus
 register_nav_menus( array(
     'top-menu' => __( 'Top Menu', 'blueronald' ),
