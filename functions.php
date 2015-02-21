@@ -17,7 +17,7 @@ function woocommerce_support() {
 	add_theme_support( 'woocommerce' );
 }
 
-// Register menus
+// Register two menus - Top Menu and Bottom Menu
 register_nav_menus( array(
     'top-menu' => __( 'Top Menu', 'blueronald' ),
     'bottom-menu' => __( 'Bottom Menu', 'blueronald' ),    
